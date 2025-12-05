@@ -11,6 +11,7 @@ href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.
 min.css">
 </head>
 <body class="bg-dark">
+    <h1>Debug: {{ filmes|length }} filmes carregados</h1>
 <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
 <a class="navbar-brand" href="/">Cinema</a>
 <button class="navbar-toggler" type="button"
@@ -34,7 +35,7 @@ navigation">
     <a class="nav-link Text-light" href="/episodios/">Episódios</a>
     </li>
 <li class="nav-item">
-<a class="nav-link Text-light" href="/genero/">Gêneros</a>
+<a class="nav-link Text-light" href="/generos/">Gêneros</a>
 </li>
 <li class="nav-item">
 <a class="nav-link Text-light" href="/temporadas/">Temporadas</a>
@@ -60,6 +61,46 @@ href="/admin/">Administração</a>
 <p class="lead">Seja Bem Vindo(A)</p>
 </div>
 </div>
+<div class="container mt-5">
+    <table class="table bg-white">
+    <thead>
+    <tr>
+    <th scope="col">Nome</th>
+    <th scope="col">Duracao</th>
+    <th scope="col">Sinopse</th>
+    <th scope="col">Site Oficial</th>
+    <th scope="col">Data de Lançamento</th>
+    <th scope="col">Nota de Avaliação</th>
+    <th scope="col">Gênero</th>
+    <th scope="col">País</th>
+    <th scope="col">Diretor</th>
+    <th scope="col">Excluir</th>
+    <th scope="col">Editar</th>
+    </tr>
+    </thead>
+    <tbody>
+        {% for filme in filmes %}
+    <tr>
+        <td>{{ filme.nome }}</td>
+        <td>{{ filme.duracao }}</td>
+        <td>{{ filme.sinopse }}</td>
+        <td>{{ filme.site_oficial }}</td>
+        <td>{{ filme.data_lancamento }}</td>
+        <td>{{ filme.nota_avaliacao }}</td>
+        <td>{{ filme.genero.nome }}</td>
+        <td>{{ filme.pais.nome }}</td>
+        <td>{{ filme.diretor.nome }}</td>
+        <td><a href="{% url 'deletar' filmes.id %}" class="btn-danger">Excluir</a></td>
+        <td><a href="{% url 'editar' filmes.id %}" class="btn-warning">Editar</a></td>
+        {% empty %}
+    </tr>
+    <tr><td colspan="9">Nenhum filme cadastrado.</td></tr>
+        {% endfor %}
+    </tbody>
+    
+    </table>
+    </div>
+    
 <!-- Incluindo jQuery e Bootstrap JS -->
 <script
 src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

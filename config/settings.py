@@ -17,6 +17,8 @@ INSTALLED_APPS = [
 'django.contrib.messages',
 'django.contrib.staticfiles',
 'app',
+'crispy_forms',
+'crispy_bootstrap5',
 ]
 
 #o template usado
@@ -54,7 +56,7 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
 'default': {
 'ENGINE': 'django.db.backends.postgresql',
-'NAME': 'cinema_n',
+'NAME': 'Cinema_n',
 'USER': 'postgres',
 'PASSWORD': '123456',
 'HOST': 'localhost',
