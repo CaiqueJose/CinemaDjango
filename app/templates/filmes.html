@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,
+initial-scale=1.0">
+<title>Página Inicial</title>
+<!-- Incluindo Bootstrap CSS -->
+<link rel="stylesheet"
+href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css
+/bootstrap.min.css">
+</head>
+<body class="bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark
+bg-danger">
+<a class="navbar-brand" href="/">Cinema</a>
+<button class="navbar-toggler" type="button"
+data-toggle="collapse" data-target="#navbarNav"
+aria-controls="navbarNav" aria-expanded="false"
+aria-label="Toggle navigation">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse"
+id="navbarNav">
+<ul class="navbar-nav">
+<li class="nav-item">
+<a class="nav-link text-dark"
+href="/">Home</a>
+</li>
+<li class="nav-item">
+<a class="nav-link text-dark"
+href="/filmes/">Filmes</a>
+</li>
+<li class="nav-item">
+<a class="nav-link text-dark"
+href="/series/">Séries</a>
+</li>
+<li class="nav-item">
+<a class="nav-link text-dark"
+href="/episodios/">Episódios</a>
+</li>
+<li class="nav-item">
+<a class="nav-link text-dark"
+href="/generos/">Gêneros</a>
+</li>
+<li class="nav-item">
+<a class="nav-link text-dark"
+href="/temporadas/">Temporadas</a>
+</li>
+<li class="nav-item">
+<a class="nav-link text-dark"
+href="/elenco/">Elenco</a>
+</li>
+<li class="nav-item">
+<a class="nav-link text-dark"
+href="/atuacao/">Atuação</a>
+</li>
+<li class="nav-item">
+<a class="nav-link text-dark"
+href="/admin/">Administração</a>
+</li>
+</ul>
+</div>
+</nav>
+<div class="container mt-5">
+<h2 class="mb-4 text-white">Tabela de Filmes</h2>
+<table class="table text-white">
+<thead>
+<tr>
+<th scope="col">Nome do Filme</th>
+<th scope="col">Temporadas do Filme</th>
+<th scope="col">Sinopse</th>
+<th scope="col">Site do Filme</th>
+<th scope="col">Data de Lançamento</th>
+<th scope="col">Nota da Avaliação</th>
+<th scope="col">Gênero</th>
+<th scope="col">País</th>
+<th scope="col">Elenco</th>
+</tr>
+</thead>
+<tbody>
+{% for series in series %}
+<tr>
+<td>{{ series.nome }}</td>
+<td>{{ series.temporada }}</td>
+<td>{{ series.sinopse }}</td>
+<td>{{ series.site_oficial }} </td>
+<td>{{ series.data_lancamento }}</td>
+<td>{{ series.nota_avaliacao }}</td>
+<td>{{ series.genero }}</td>
+<td>{{ series.pais }}</td>
+<td>{{ seires.diretor }}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+</div>
+<!-- Incluindo jQuery e Bootstrap JS -->
+<script
+src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></
+script>
+<script
+src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/di
+st/umd/popper.min.js"></script>
+<script
+src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/b
+ootstrap.min.js"></script>
+</body>
+</html>
