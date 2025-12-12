@@ -9,11 +9,16 @@ initial-scale=1.0">
 <link rel="stylesheet"
 href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.
 min.css">
+<style>
+    .navbar{
+        background-color: Purple;
+    }
+</style>
 </head>
-<body class="bg-dark">
-    <h1>Debug: {{ filmes|length }} filmes carregados</h1>
-<nav class="navbar navbar-expand-lg navbar-dark bg-danger">
-<a class="navbar-brand" href="/">Cinema</a>
+<body>
+    <h1>Debug: {{ filmes|length }} cursos carregados</h1>
+<nav class="navbar navbar-expand-lg navbar-dark">
+<a class="navbar-brand" href="/">Escola</a>
 <button class="navbar-toggler" type="button"
 data-toggle="collapse" data-target="#navbarNav"
 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle
@@ -26,25 +31,28 @@ navigation">
 <a class="nav-link text-light" href="/">Home</a>
 </li>
 <li class="nav-item">
-<a class="nav-link Text-light" href="/filmes/">Filmes</a>
+<a class="nav-link Text-light" href="/pessoas/">Pessoas</a>
 </li>
 <li class="nav-item">
-<a class="nav-link Text-light" href="/series/">Séries</a>
+<a class="nav-link Text-light" href="/cursos/">Cursos</a>
 </li>
 <li class="nav-item">
-    <a class="nav-link Text-light" href="/episodios/">Episódios</a>
+    <a class="nav-link Text-light" href="/instituicoes/">Instituições</a>
     </li>
 <li class="nav-item">
-<a class="nav-link Text-light" href="/generos/">Gêneros</a>
+<a class="nav-link Text-light" href="/areas/">Áreas</a>
 </li>
 <li class="nav-item">
-<a class="nav-link Text-light" href="/temporadas/">Temporadas</a>
+<a class="nav-link Text-light" href="/disciplinas/">Disciplinas</a>
 </li>
 <li class="nav-item">
-<a class="nav-link Text-light" href="/elencos/">Elenco</a>
+<a class="nav-link Text-light" href="/matriculas/">Matrículas</a>
 </li>
 <li class="nav-item">
-<a class="nav-link Text-light" href="/atuacoes/">Atuação</a>
+<a class="nav-link Text-light" href="/frequencias/">Frequências</a>
+</li>
+<li class="nav-item">
+<a class="nav-link Text-light" href="/ocorrencias/">Ocorrências</a>
 </li>
 <li class="nav-item">
 <a class="nav-link Text-light"
@@ -57,7 +65,7 @@ href="/admin/">Administração</a>
 <div class="container mt-5">
 <div class="jumbotron text-center">
 <h1 class="display-4">Olá, é bom te ver por aqui</h1>
-<p class="lead">Esta é a página inicial do Cinema</p>
+<p class="lead">Esta é a página inicial dos Cursos</p>
 <p class="lead">Seja Bem Vindo(A)</p>
 </div>
 </div>
@@ -65,36 +73,27 @@ href="/admin/">Administração</a>
     <table class="table bg-white">
     <thead>
     <tr>
-    <th scope="col">Nome</th>
-    <th scope="col">Duracao</th>
-    <th scope="col">Sinopse</th>
-    <th scope="col">Site Oficial</th>
-    <th scope="col">Data de Lançamento</th>
+    <th scope="col">Curso</th>
+    <th scope="col">Carga Horária Total</th>
+    <th scope="col">Duraçao em Mêses</th>
+    <th scope="col">Áreas do Saber</th>
+    <th scope="col">Instituição</th>
     <th scope="col">Nota de Avaliação</th>
-    <th scope="col">Gênero</th>
-    <th scope="col">País</th>
-    <th scope="col">Diretor</th>
-    <th scope="col">Excluir</th>
-    <th scope="col">Editar</th>
     </tr>
     </thead>
     <tbody>
-        {% for filme in filmes %}
+        {% for curso in cursos %}
     <tr>
-        <td>{{ filme.nome }}</td>
-        <td>{{ filme.duracao }}</td>
-        <td>{{ filme.sinopse }}</td>
-        <td>{{ filme.site_oficial }}</td>
-        <td>{{ filme.data_lancamento }}</td>
-        <td>{{ filme.nota_avaliacao }}</td>
-        <td>{{ filme.genero.nome }}</td>
-        <td>{{ filme.pais.nome }}</td>
-        <td>{{ filme.diretor.nome }}</td>
-        <td><a href="{% url 'deletar' filmes.id %}" class="btn-danger">Excluir</a></td>
-        <td><a href="{% url 'editar' filmes.id %}" class="btn-warning">Editar</a></td>
+        <td>{{ curso.curso }}</td>
+        <td>{{ curso.carga_horaria_total }}</td>
+        <td>{{ curso.duracao_meses }}</td>
+        <td>{{ curso.areaSaber }}</td>
+        <td>{{ curso.instituicao }}</td>
+        <td><a href="{% url 'deletar' cursos.id %}" class="btn-danger">Excluir</a></td>
+        <td><a href="{% url 'editar' cursos.id %}" class="btn-warning">Editar</a></td>
         {% empty %}
     </tr>
-    <tr><td colspan="9">Nenhum filme cadastrado.</td></tr>
+    <tr><td colspan="9">Nenhum Curso Cadastrado.</td></tr>
         {% endfor %}
     </tbody>
     
